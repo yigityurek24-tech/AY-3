@@ -207,7 +207,33 @@
 </head>
 <body>
 
-  <div class="bg-slider" id="bg-slider"></div>
+  <!-- 23 Fotoğrafın Tamamı -->
+  <div class="bg-slider">
+    <img src="1.jpg" class="active" alt="">
+    <img src="2.jpg" alt="">
+    <img src="3.jpg" alt="">
+    <img src="4.jpg" alt="">
+    <img src="5.jpg" alt="">
+    <img src="6.jpg" alt="">
+    <img src="7.jpg" alt="">
+    <img src="8.jpg" alt="">
+    <img src="9.jpg" alt="">
+    <img src="10.jpg" alt="">
+    <img src="11.jpg" alt="">
+    <img src="12.jpg" alt="">
+    <img src="13.jpg" alt="">
+    <img src="14.jpg" alt="">
+    <img src="15.jpg" alt="">
+    <img src="16.jpg" alt="">
+    <img src="17.jpg" alt="">
+    <img src="18.jpg" alt="">
+    <img src="19.jpg" alt="">
+    <img src="20.jpg" alt="">
+    <img src="21.jpg" alt="">
+    <img src="22.jpg" alt="">
+    <img src="23.jpg" alt="">
+  </div>
+  
   <div class="overlay"></div>
 
   <!-- Sayaç Kartı -->
@@ -261,7 +287,7 @@
   </div>
 
   <script>
-    // 1. Sayaç Hesabı: 6 Eylül 2026 Saat 08:00
+    // Sayaç Hesabı: 6 Eylül 2026 Saat 08:00
     const targetDate = new Date(2026, 8, 6, 8, 0, 0).getTime();
 
     function updateCountdown() {
@@ -291,32 +317,15 @@
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    // 2. Doğrudan Ham Bağlantılar (Raw GitHub Links)
-    const repoName = window.location.pathname.split('/')[1] || '';
-    const baseUrl = `https://raw.githubusercontent.com/yigityurek24-tech/${repoName}/main/`;
-    
-    const sliderContainer = document.getElementById('bg-slider');
-    const validImages = [];
-    const totalPhotos = 23;
-
-    for (let i = 1; i <= totalPhotos; i++) {
-      const img = document.createElement('img');
-      img.src = `${baseUrl}${i}.jpg`;
-      img.onload = () => {
-        if (!validImages.includes(img)) {
-          validImages.push(img);
-          if (validImages.length === 1) img.classList.add('active');
-        }
-      };
-      sliderContainer.appendChild(img);
-    }
-
+    // 23 Fotoğraf Arasında 4.5 Saniyede Bir Geçiş
+    const slides = document.querySelectorAll('.bg-slider img');
     let currentSlide = 0;
+
     setInterval(() => {
-      if (validImages.length > 1) {
-        validImages[currentSlide].classList.remove('active');
-        currentSlide = (currentSlide + 1) % validImages.length;
-        validImages[currentSlide].classList.add('active');
+      if (slides.length > 1) {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
       }
     }, 4500);
   </script>
