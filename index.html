@@ -126,7 +126,7 @@
       color: #cbd5e1;
     }
 
-    /* Koşma Animasyonu Pisti */
+    /* Koşma Animasyonu */
     .runner-track {
       position: relative;
       width: 100%;
@@ -291,14 +291,17 @@
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    // 2. GitHub'daki 23 Fotoğrafı Otomatik Yükleyen Mekanizma
-    const totalPhotos = 23;
+    // 2. Doğrudan Ham Bağlantılar (Raw GitHub Links)
+    const repoName = window.location.pathname.split('/')[1] || '';
+    const baseUrl = `https://raw.githubusercontent.com/yigityurek24-tech/${repoName}/main/`;
+    
     const sliderContainer = document.getElementById('bg-slider');
     const validImages = [];
+    const totalPhotos = 23;
 
     for (let i = 1; i <= totalPhotos; i++) {
       const img = document.createElement('img');
-      img.src = `${i}.jpg`;
+      img.src = `${baseUrl}${i}.jpg`;
       img.onload = () => {
         if (!validImages.includes(img)) {
           validImages.push(img);
