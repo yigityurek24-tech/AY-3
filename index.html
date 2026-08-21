@@ -287,7 +287,7 @@
   </div>
 
   <script>
-    // Sayaç Hesabı: 6 Eylül 2026 Saat 08:00
+    // 1. Sayaç Hesabı: 6 Eylül 2026 Saat 08:00
     const targetDate = new Date(2026, 8, 6, 8, 0, 0).getTime();
 
     function updateCountdown() {
@@ -317,9 +317,21 @@
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    // 23 Fotoğraf Arasında 4.5 Saniyede Bir Geçiş
-    const slides = document.querySelectorAll('.bg-slider img');
+    // 2. Mobil Uyumlu Hata Toleranslı Slayt Geçişi
+    const slides = Array.from(document.querySelectorAll('.bg-slider img'));
     let currentSlide = 0;
+
+    slides.forEach(img => {
+      img.onerror = function() {
+        if (this.src.endsWith('.jpg')) {
+          this.src = this.src.replace('.jpg', '.JPG');
+        } else if (this.src.endsWith('.JPG')) {
+          this.src = this.src.replace('.JPG', '.jpeg');
+        } else if (this.src.endsWith('.jpeg')) {
+          this.src = this.src.replace('.jpeg', '.png');
+        }
+      };
+    });
 
     setInterval(() => {
       if (slides.length > 1) {
