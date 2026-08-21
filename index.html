@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AY❤️</title>
+  <title>Kavuşmaya Geri Sayım ❤️</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
   
   <style>
@@ -23,19 +23,20 @@
       color: #ffffff;
       padding: 30px 20px;
       gap: 30px;
-      background-color: #0b0f19;
       position: relative;
+      background-color: #0b0f19;
       overflow-x: hidden;
     }
 
-    /* Arka Plan Konteyneri */
+    /* Arka Plan Slayt Konteyneri */
     .bg-slider {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      z-index: 1;
+      z-index: 0;
+      overflow: hidden;
     }
 
     .bg-slider img {
@@ -60,24 +61,24 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(0, 0, 0, 0.65);
-      z-index: 2;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 1;
     }
 
     /* Sayaç Kartı */
     .card {
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.12);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.25);
       border-radius: 24px;
       padding: 35px 25px;
       text-align: center;
       max-width: 540px;
       width: 100%;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
       position: relative;
-      z-index: 3;
+      z-index: 2;
     }
 
     h1 {
@@ -103,10 +104,10 @@
     }
 
     .time-box {
-      background: rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.14);
       border-radius: 16px;
       padding: 14px 6px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.12);
     }
 
     .time-box span {
@@ -192,7 +193,7 @@
       overflow: hidden;
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
       position: relative;
-      z-index: 3;
+      z-index: 2;
     }
 
     @media (max-width: 480px) {
@@ -206,18 +207,21 @@
 </head>
 <body>
 
-  <!-- Arka Planda Dönen Fotoğraflar -->
+  <!-- Yüklediğin Fotoğraflar -->
   <div class="bg-slider">
-    <img src="img/1.jpg" class="active" alt="Fotoğraf 1" onerror="this.src='img/1.jpeg'">
-    <img src="img/2.jpg" alt="Fotoğraf 2" onerror="this.src='img/2.jpeg'">
-    <img src="img/3.jpg" alt="Fotoğraf 3" onerror="this.src='img/3.jpeg'">
+    <img src="1.jpg" class="active" alt="">
+    <img src="2.jpg" alt="">
+    <img src="3.jpg" alt="">
+    <img src="4.jpg" alt="">
+    <img src="10.jpg" alt="">
   </div>
+  
   <div class="overlay"></div>
 
   <!-- Sayaç Kartı -->
   <div class="card">
     <h1>Kavuşmamıza Kalan Süre</h1>
-    <p class="subtitle">Şu kadarcık kalmışşş</p>
+    <p class="subtitle">Aramızdaki mesafelerin biteceği güne doğru...</p>
 
     <div class="timer-container">
       <div class="time-box">
@@ -246,12 +250,11 @@
     </div>
 
     <div class="quote" id="footer-text">
-      "Seni Çoooooook Seviyorumm
-  "
+      "Mesafe sadece bir sayıdan ibaret."
     </div>
   </div>
 
-  <!-- Spotify Oynatıcı -->
+  <!-- Spotify Çalma Listesi -->
   <div class="spotify-wrapper">
     <iframe 
       style="border-radius:16px;" 
@@ -266,7 +269,7 @@
   </div>
 
   <script>
-    // 1. Sayaç: 6 Eylül 2026 Saat 08:00
+    // Sayaç Hesabı: 6 Eylül 2026 Saat 08:00
     const targetDate = new Date(2026, 8, 6, 8, 0, 0).getTime();
 
     function updateCountdown() {
@@ -296,7 +299,7 @@
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    // 2. Slayt Mantığı (4.5 Saniyede Bir Geçiş)
+    // Slayt Geçişi (Her 4.5 saniyede bir fotoğraf değişir)
     const slides = document.querySelectorAll('.bg-slider img');
     let currentSlide = 0;
 
