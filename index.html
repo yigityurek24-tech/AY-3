@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- GitHub Görsel Erişim Engelini Kaldıran Zorunlu Etiket -->
+  <meta name="referrer" content="no-referrer">
   <title>Kavuşmaya Geri Sayım ❤️</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
   
@@ -207,9 +209,9 @@
 </head>
 <body>
 
-  <!-- 23 Fotoğrafın Tamamı -->
+  <!-- 23 Fotoğrafın Tamamı (Düzeltilmiş Bağlantılar) -->
   <div class="bg-slider">
-    <img src=""https://github.com/user-attachments/assets/13d5df45-e3df-41b1-b561-ea90287d5d80"" class="active" alt="">
+    <img src="https://github.com/user-attachments/assets/13d5df45-e3df-41b1-b561-ea90287d5d80" class="active" alt="">
     <img src="https://github.com/user-attachments/assets/734c53fd-f16c-463d-a2cf-67d3a35906f1" alt="">
     <img src="https://github.com/user-attachments/assets/b6fd4275-3214-4a86-92d5-6ed7174a138f" alt="">
     <img src="https://github.com/user-attachments/assets/d28027fe-e93c-4340-94bb-2c3041c8e636" alt="">
@@ -317,21 +319,9 @@
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    // 2. Mobil Uyumlu Hata Toleranslı Slayt Geçişi
+    // 2. Slayt Geçişi
     const slides = Array.from(document.querySelectorAll('.bg-slider img'));
     let currentSlide = 0;
-
-    slides.forEach(img => {
-      img.onerror = function() {
-        if (this.src.endsWith('.jpg')) {
-          this.src = this.src.replace('.jpg', '.JPG');
-        } else if (this.src.endsWith('.JPG')) {
-          this.src = this.src.replace('.JPG', '.jpeg');
-        } else if (this.src.endsWith('.jpeg')) {
-          this.src = this.src.replace('.jpeg', '.png');
-        }
-      };
-    });
 
     setInterval(() => {
       if (slides.length > 1) {
